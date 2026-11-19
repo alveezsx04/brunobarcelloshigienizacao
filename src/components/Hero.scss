@@ -1,0 +1,162 @@
+
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    #d9f5f0 0%,
+    #effbf8 100%
+  );
+
+  padding: 90px 0 80px;
+
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    max-width: 850px;
+    margin-bottom: 55px;
+  }
+
+  &__tag {
+    display: inline-block;
+    background: $color-accent;
+    color: $color-dark;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    max-width: 800px;
+    font-size: clamp(44px, 6vw, 76px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -3px;
+    color: $color-dark;
+
+    span {
+      color: $color-primary;
+    }
+  }
+
+  &__description {
+    max-width: 650px;
+    margin-top: 25px;
+    color: #60777d;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.6;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 35px;
+  }
+
+  &__button {
+    min-height: 58px;
+    padding: 0 30px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-primary;
+    color: $color-light;
+    font-weight: 700;
+    transition: $transition;
+
+    &:hover {
+      background: $color-dark;
+      transform: translateY(-3px);
+    }
+
+    &--outline {
+      background: transparent;
+      color: $color-dark;
+      border: 2px solid $color-dark;
+
+      &:hover {
+        background: $color-dark;
+        color: $color-light;
+      }
+    }
+  }
+
+  &__media {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+    border-radius: $radius-lg;
+    background: #c8dfda;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__media-label {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(16, 43, 54, 0.85);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  @include responsive(tablet) {
+    padding: 65px 0 55px;
+
+    &__content {
+      margin-bottom: 40px;
+    }
+
+    &__media {
+      height: 400px;
+    }
+  }
+
+  @include responsive(mobile) {
+    padding: 55px 0 45px;
+
+    h1 {
+      font-size: 43px;
+      letter-spacing: -2px;
+    }
+
+    &__description {
+      font-size: 18px;
+    }
+
+    &__actions {
+      flex-direction: column;
+    }
+
+    &__button {
+      width: 100%;
+      min-height: 58px;
+    }
+
+    &__media {
+      height: 300px;
+      border-radius: 22px;
+    }
+
+    &__media-label {
+      left: 12px;
+      bottom: 12px;
+      font-size: 12px;
+    }
+  }
+}

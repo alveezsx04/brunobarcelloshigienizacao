@@ -1,0 +1,81 @@
+
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.contact {
+  background: #f3fbfa;
+  padding: 120px 0;
+
+  &__container {
+    @include container;
+    text-align: center;
+  }
+
+  h2 {
+    color: $color-dark;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -2px;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 25px auto 40px;
+    color: #60777d;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 68px;
+    padding: 0 45px;
+    border-radius: 50px;
+    background: $color-primary;
+    color: $color-light;
+    font-size: 20px;
+    font-weight: 700;
+    transition: $transition;
+
+    svg {
+      font-size: 25px;
+    }
+
+    &:hover {
+      background: $color-dark;
+      transform: translateY(-3px);
+    }
+  }
+
+  @include responsive(mobile) {
+    padding: 85px 0;
+
+    h2 {
+      font-size: 37px;
+    }
+
+    p {
+      font-size: 17px;
+    }
+
+    &__button {
+      width: 100%;
+      padding: 0 20px;
+      font-size: 18px;
+    }
+  }
+
+.contact__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 35px;
+  width: 100%;
+}
+
+}

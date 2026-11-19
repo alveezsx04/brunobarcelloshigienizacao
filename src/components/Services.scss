@@ -1,0 +1,133 @@
+
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.services {
+  background: #f3fbfa;
+  padding: 90px 0 110px;
+
+  &__container {
+    @include container;
+  }
+
+  &__header {
+    margin-bottom: 55px;
+
+    h2 {
+      color: $color-dark;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  &__card {
+    background: #ffffff;
+    border: 2px solid #d5e5e5;
+    border-radius: 45px;
+    padding: 55px 50px;
+    transition: $transition;
+
+    &:hover {
+      border-color: $color-primary;
+      transform: translateY(-5px);
+    }
+
+    h3 {
+      color: $color-dark;
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin: 32px 0 20px;
+    }
+
+    p {
+      color: #60777d;
+      font-size: 23px;
+      line-height: 1.5;
+      max-width: 700px;
+    }
+  }
+
+  &__number {
+    color: $color-primary;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  @include responsive(tablet) {
+    padding: 70px 0;
+
+    &__card {
+      padding: 40px;
+
+      h3 {
+        font-size: 29px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @include responsive(mobile) {
+    padding: 65px 0 80px;
+
+    &__header {
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 38px;
+      }
+    }
+
+    &__grid {
+      gap: 22px;
+    }
+
+    &__card {
+      padding: 38px 30px;
+      border-radius: 35px;
+
+      h3 {
+        font-size: 27px;
+        margin: 28px 0 18px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    &__number {
+      font-size: 25px;
+    }
+  }
+}
+
+
+.services__icon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5f5f2;
+  color: $color-primary;
+  border-radius: 18px;
+  font-size: 30px;
+  margin-bottom: 25px;
+
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
