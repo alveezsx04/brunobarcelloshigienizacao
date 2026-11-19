@@ -1,16 +1,30 @@
 
 import './VideoGallery.scss';
 
-const videos = [
+const results = [
   {
-    title: 'Extração profunda em sofá',
-    description: 'A sujeira sai na primeira passada.',
-    src: '/videos/sofa.mp4',
+    type: 'image',
+    title: 'Higienização de sofá',
+    description: 'Resultado de uma limpeza profissional.',
+    src: '/images/sofaaa.jpeg',
   },
   {
-    title: 'Higienização de colchão',
-    description: 'Mais cuidado, limpeza e conforto para suas noites.',
-    src: '/videos/colchao.mp4',
+    type: 'video',
+    title: 'Limpeza de colchão',
+    description: 'Acompanhe o processo de extração.',
+    src: '/videos/higienizacaocolchao.mp4',
+  },
+  {
+    type: 'image',
+    title: 'Antes e Depois',
+    description: 'Cuidado e limpeza para seu sofá.',
+    src: '/images/sofa-antesedepois.jpeg',
+  },
+  {
+    type: 'video',
+    title: 'Antes e Depois',
+    description: 'Veja a diferença.',
+    src: '/videos/@r07qxo  - R⤓Download.mp4',
   },
 ];
 
@@ -20,29 +34,41 @@ function VideoGallery() {
       <div className="video-gallery__container">
 
         <div className="video-gallery__header">
-          <h2>Veja a limpeza acontecendo</h2>
-          <p>Vídeos reais dos nossos serviços.</p>
+          <span>Nosso trabalho</span>
+          <h2>Resultados que fazem a diferença.</h2>
+          <p>
+            Confira alguns dos nossos trabalhos e veja
+            o cuidado em cada higienização.
+          </p>
         </div>
 
         <div className="video-gallery__grid">
-          {videos.map((video, index) => (
-            <article
-              className="video-gallery__card"
-              key={index}
-            >
+          {results.map((item, index) => (
+            <article className="video-gallery__card" key={index}>
+
               <div className="video-gallery__media">
-                <video
-                  src={video.src}
-                  controls
-                  playsInline
-                  preload="metadata"
-                />
+                {item.type === 'image' ? (
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    loading="lazy"
+                  />
+                ) : (
+                  <video
+                    src={item.src}
+                    autoPlay
+                    muted
+                    loop
+                    preload="metadata"
+                  />
+                )}
               </div>
 
               <div className="video-gallery__content">
-                <h3>{video.title}</h3>
-                <p>{video.description}</p>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
+
             </article>
           ))}
         </div>

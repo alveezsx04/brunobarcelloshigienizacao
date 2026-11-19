@@ -27,7 +27,7 @@ function Hero() {
             </a>
 
             <a href="#videos" className="hero__button hero__button--outline">
-              Ver vídeos
+              Veja nossos resultados
             </a>
           </div>
 
